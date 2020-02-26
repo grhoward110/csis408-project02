@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project 02</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    
+    <!-- Stylesheets -->
+    <link href="css/destyle.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    
+    <!-- Google Font(s) -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    
+    
+</head>
+<body>
+
+<div id="container">
+	
+	<h1>Login Form</h1>
+    
+	<fieldset>
+		
+		<!--Login Form functionality from JavaScript and JQuery Textbook by Jon Duckett-->
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" /> 
+		<label for="password">Password:</label>
+		<input type="text" id="password" name="password" /> 
+		<input type="submit" value="Login" id="submit" name="submit" onclick="webPageTransfer();" /> 
+        <input type="button" value="Cancel" id="cancel" name="cancel" onclick="webPageReset();" /> 
+	
+	</fieldset>
+    
+    <script>
+		
+		function webPageTransfer() {
+			
+			location.replace("webpage.html"); 
+		}
+	
+	</script>
+	
+	<script>
+		
+		function webPageReset() {
+			
+			location.replace("index.html"); 
+		}
+	
+	
+	</script>
+    
+        
+</div>   
+        
+</body>
+</html>
+
+<!--   
+
+<video autoplay loop id="video-background" muted plays-inline>
+    <source src="/video/.mp4">
+</video>    
+
+-->
