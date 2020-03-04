@@ -8,11 +8,13 @@
     
     <!-- Stylesheets -->
     <link href="css/destyle.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/login_style.css" rel="stylesheet" />
     
     <!-- Google Font(s) -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     
+	<!--JQuery Functionality -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     
 </head>
 <body>
@@ -23,35 +25,17 @@
     
 	<fieldset>
 		
-		<!--Login Form functionality from JavaScript and JQuery Textbook by Jon Duckett-->
+		<!--Login Form codes and concepts from JavaScript and JQuery Textbook by Jon Duckett-->
 		<label for="username">Username:</label>
-		<input type="text" id="username" name="username" /> 
+		<input type="text" id="username" name="username" placeholder="Please put in your username" /> 
 		<label for="password">Password:</label>
-		<input type="text" id="password" name="password" /> 
-		<input type="submit" value="Login" id="submit" name="submit" onclick="webPageTransfer();" /> 
-        <input type="button" value="Cancel" id="cancel" name="cancel" onclick="webPageRefresh(); " /> 
+		<input type="text" id="password" name="password" placeholder="Please put in your password" /> 
+		<input type="submit" value="Login" id="submit" name="submit" /> 
+        <input type="button" value="Cancel" id="cancel" name="cancel" /> 
 	
 	</fieldset>
     
-    <script>
-		
-		function webPageTransfer() {
-			
-			location.replace("webpage.html"); 
-		}
-	
-	</script>
-	
-	<script>
-		
-		function webPageRefresh() {
-			
-			location.reload("index.html"); 
-		}
-	
-	
-	
-	</script>
+    
 	
     
         
