@@ -24,6 +24,33 @@ $("#loginForm").submit(function(event)
     return false;
 })
 
+$("#signupForm").submit(function(event)
+{
+    var objectDataString = JSON.stringify({
+      "email": document.getElementById('inputEmail').value,
+      "password": document.getElementById('inputPassword').value,
+      //"isAdmin": false
+    });
+
+    event.preventDefault();
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:5000/api/users/signup",
+        data: objectDataString,
+        error: function (e) {
+          console.log(e);
+         },
+        dataType:"json",
+        contentType: "application/json",
+        success: function(result)
+        {
+          alert('Signup Success!');
+        },
+
+    });
+    return false;
+})
+
 $("#requestForm").submit(function(event)
 {
     var objectDataString = JSON.stringify({
