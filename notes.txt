@@ -1,0 +1,14 @@
+requests
+GET all requests
+POST new request
+PATCH request approval status
+DELETE request by id
+
+
+users
+POST login
+GET user's requests (?)
+
+db creds
+admin
+team2project02
