@@ -1,3 +1,4 @@
+// Login function
 $("#loginForm").submit(function(event)
 {
     var objectDataString = JSON.stringify({
@@ -24,6 +25,7 @@ $("#loginForm").submit(function(event)
     return false;
 })
 
+// Signup function
 $("#signupForm").submit(function(event)
 {
     var objectDataString = JSON.stringify({
@@ -39,12 +41,23 @@ $("#signupForm").submit(function(event)
         data: objectDataString,
         error: function (e) {
           console.log(e);
+          console.log(e.responseText);
+          $("#alert").load("../include/alertfail.html", function()
+          {
+            $(this).find(".alert").append(e.responseText);
+          });
          },
         dataType:"json",
         contentType: "application/json",
         success: function(result)
         {
-          alert('Signup Success!');
+          $("#alert").load("../include/alertsuccess.html", function()
+          {
+            $('#signupForm').each(function(){
+              this.reset();
+            });  
+            $(this).find(".alert").append("Signup Successful! Click <a href='login.html' class='alert-link'>Here</a> to go login.");
+          });
         },
 
     });
@@ -71,9 +84,47 @@ $("#requestForm").submit(function(event)
         contentType: "application/json",
         success: function(result)
         {
-          alert('Request Submitted!');
+
+          $('#requestForm').each(function(){
+            this.reset();
+          });
+
+          $("#alert").load("../include/alertsuccess.html", function()
+          {
+            $(this).find(".alert").append("Your request has been submitted");
+
+          });
         },
 
     });
     return false;
 })
+
+function loadRequests() {
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:5000/api/requests",
+    //data: {get_param: "data"},
+    dataType: "json",
+    success: function (response) {
+
+      $.each(response.data, function(i, item) {
+        console.log(i);
+          var $tr = $('#tabledata').append(
+            $('<tr>').append(
+            $('<td>').text(item._id),
+            $('<td>').text(item.message),
+            $('<td>').text(item.category),
+            $('<td>').append(
+              $('<select>').toggleClass("form-control approvalStatus").append(
+                new Option("Pending Approval", null),
+                new Option("Approved", true),
+                new Option("Denied", false),
+              ),
+            )
+          )
+        ); 
+      })   
+    }
+  })
+}
