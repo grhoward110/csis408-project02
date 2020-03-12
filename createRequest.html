@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Liberty Suggestion Box</title>
+    
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<div id="alert"></div>
+
+<main role="main">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h2>Make a Suggestion:</h2>
+            <p>All suggestions will be conisdered by administrators</p>
+    <br>
+    
+    <form class="form-group" id="requestForm">
+
+    <!-- Add js functionality to post to backend -->
+
+    <label for="category">Choose a category:</label>
+    <select class="form-control" id="category" name="category">
+        <option value="Food Options">Food Options</option>
+        <option value="Parking">Parking</option>
+        <option value="Blackboard">Blackboard</option>
+        <option value="Housing">Housing</option>
+        <option value="Other">Other</option>
+    </select>
+    <input type="submit">
+    
+    <input disabled  maxlength="500" size="3" value="500" id="counter">
+    
+    <input type="text" class="form-control"
+          
+        name="message" rows="20" cols="80" 
+        maxlength="500"
+    onkeyup="textCounter(this,'counter',500);" id="message">
+    
+    
+
+    
+    <button class="btn btn-success" type= "submit" value="Send">Send</button>
+    <button class="btn btn-danger" type= "reset" value="Reset">Reset</button>
+    </form>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</main>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="/js/app.js" type="text/javascript"></script>
+
+    <!-- Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Backend Connector -->
+    <script src="/js/backendconn.js" type="text/javascript"></script>
+
+</body>
+</html>
