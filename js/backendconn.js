@@ -1,3 +1,5 @@
+let hostUrl = "https://csis408project02.azurewebsites.net";
+
 // Login function
 $("#loginForm").submit(function(event)
 {
@@ -9,7 +11,7 @@ $("#loginForm").submit(function(event)
     event.preventDefault();
     $.ajax({
         type: "POST",
-        url: "http://localhost:5000/api/users/login",
+        url: hostUrl + "/api/users/login",
         data: objectDataString,
         error: function (e) {          
           console.log(e);
@@ -38,7 +40,7 @@ $("#signupForm").submit(function(event)
     event.preventDefault();
     $.ajax({
         type: "POST",
-        url: "http://localhost:5000/api/users/signup",
+        url: hostUrl + "/api/users/signup",
         data: objectDataString,
         error: function (e) {
           console.log(e);
@@ -77,7 +79,7 @@ $("#requestForm").submit(function(event)
     event.preventDefault();
     $.ajax({
         type: "POST",
-        url: "http://localhost:5000/api/requests",
+        url: hostUrl + "/api/requests",
         data: objectDataString,
         error: function (e) {
           console.log(e);
@@ -105,7 +107,7 @@ $("#requestForm").submit(function(event)
 function loadRequests() {
   $.ajax({
     type: "GET",
-    url: "http://localhost:5000/api/requests",
+    url: hostUrl + "/api/requests",
     //data: {get_param: "data"},
     dataType: "json",
     success: function (response) {
@@ -162,7 +164,7 @@ function updateRequests() {
 
 function postUpdateRequests(data) {
   
-  console.log("http://localhost:5000/api/requests/"+data[0]);
+  //console.log("http://localhost:5000/api/requests/"+data[0]);
 
   var objectDataString = JSON.stringify({
     //"_id": data[0],
@@ -174,7 +176,7 @@ function postUpdateRequests(data) {
   $.ajax({
     type: "PUT",
     crossDomain: true,
-    url: "http://localhost:5000/api/requests/"+data[0],
+    url: hostUrl + "/api/requests/"+data[0],
     data: objectDataString ,
     error: function (e) {
       console.log(e);
